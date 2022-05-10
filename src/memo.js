@@ -10,12 +10,12 @@ module.exports = {
     }, "请输入你想输入的")
 
 
-    const sendMemo = (e) => {
+    const sendSeeds = (e) => {
       if (+e.which === 13) {
         // 取出api并发送请求
         const url = window.utools.dbStorage.getItem("api")
 
-        if(url.search("https://flomoapp.com/") === -1) {
+        if(url.search("https://seedsnote.com/") === -1) {
           utools.setSubInputValue(ERROR_MSG)
         } else {
           axios.post(url, {
@@ -29,10 +29,10 @@ module.exports = {
           })
         }
 
-        document.removeEventListener('keydown', sendMemo)
+        document.removeEventListener('keydown', sendSeeds)
       }
     }
 
-    document.addEventListener('keydown', sendMemo)
+    document.addEventListener('keydown', sendSeeds)
   }
 }
